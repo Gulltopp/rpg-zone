@@ -65,7 +65,7 @@
         <range>
             <type>mine</type>
         </range>
-        <trigger>vous êtes touchés par une attaque.</trigger>
+        <trigger>vous êtes touché par une attaque.</trigger>
         <effect>vous réduisez les dégâts de l'attaque de 5 + votre modificateur de constitution.</effect>
     </power>
     <power>
@@ -305,7 +305,7 @@
         <range>
             <type>mine</type>
         </range>
-        <effect>vous dépensez une récupération, regagnez un nombre de points de vie égal à 2d6 + votre modificateur de Constitution, et effectuez un jet de sauvegarde contre un effet susceptible d'être annulé par une sauvegarde.</effect>
+        <effect>vous dépensez une récupération, regagnez un nombre de points de vie supplémentaire égal à 2d6 + votre modificateur de Constitution, et effectuez un jet de sauvegarde contre un effet susceptible d'être annulé par une sauvegarde.</effect>
     </power>
     <power>
         <title>Insoumis</title>
