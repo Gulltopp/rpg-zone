@@ -13,63 +13,63 @@
 
                     .content::after{ clear:both;}
                     .left, .right {
-                    width: 10cm;
+                        width: 10cm;
                     }
                     .left {float:left;}
                     .right{float:right;}
 
                     .power {
-                    font-family : "Mentor Sans Std";
-                    font-weight : lighter;
-                    margin-bottom : 10px;
-                    display: inline-block;
-                    width: 10cm;
+                        font-family : "Mentor Sans Std";
+                        font-weight : lighter;
+                        margin-bottom : 10px;
+                        display: inline-block;
+                        width: 10cm;
                     }
                     .power div {
-                    padding: 2px 10px;
+                        padding: 2px 10px;
                     }
 
                     .power .title {
-                    font-weight : bold;
+                        font-weight : bold;
                     }
 
                     .encounter .title {
-                    background-color:#951233;
-                    color: #ffffff;
+                        background-color:#951233;
+                        color: #ffffff;
                     }
 
                     .daily .title {
-                    background-color:#4b4c4d;
-                    color: #ffffff;
+                        background-color:#4b4c4d;
+                        color: #ffffff;
                     }
 
                     .atWill .title{
-                    background-color:#609768;
-                    color: #ffffff;
+                        background-color:#609768;
+                        color: #ffffff;
                     }
 
                     .power .title .lvl {
-                    float : right;
-                    font-size:0.9em;
-                    font-weight:normal;
-                    padding-top: 2px;
+                        float : right;
+                        font-size:0.9em;
+                        font-weight:normal;
+                        padding-top: 2px;
                     }
 
                     .power div:nth-child(even) {
-                    background: linear-gradient(to right,#dcdbcc, #ffffff); /* Standard syntax */
+                        background: linear-gradient(to right,#dcdbcc, #ffffff); /* Standard syntax */
                     }
 
                     .power .desc {
-                    font-family : "Mentor";
-                    font-style:italic;
+                        font-family : "Mentor";
+                        font-style:italic;
                     }
 
                     .type, .attributes, .actionType, .range, .target, .attack {
-                    font-weight: normal;
+                        font-weight: normal;
                     }
 
                     .range {
-                    margin-left:20px;
+                        margin-left:20px;
                     }
                 </style>
             </head>
@@ -111,15 +111,26 @@
                                             <xsl:when test="actionType = 'immediateReaction'"><xsl:text>Réaction immédiate</xsl:text></xsl:when>
                                         </xsl:choose>
                                     </span>
-                                    <xsl:apply-templates select="range" /><br />
-                                    <xsl:apply-templates select="target" /><br />
+                                    <xsl:apply-templates select="range" />
+                                    <xsl:apply-templates select="target" />
+                                    <xsl:apply-templates select="trigger" />
                                     <xsl:apply-templates select="attack" />
                                 </div>
-                                <div>
-                                    <strong>Réussite : </strong><xsl:value-of select="hit" />
-                                </div>
-                                <xsl:if test="mod">
-                                    <div><xsl:copy-of select="mod"/></div>
+                                <xsl:if test="hit">
+                                    <div>
+                                        <strong>Réussite : </strong><xsl:value-of select="hit" />
+                                    </div>
+                                </xsl:if>
+                                <xsl:if test="fail">
+                                    <div><strong>Échec : </strong><xsl:copy-of select="fail"/></div>
+                                </xsl:if>
+                                <xsl:if test="effect">
+                                    <div><strong>Effet : </strong><xsl:copy-of select="effect"/></div>
+                                </xsl:if>
+                                <xsl:if test="mods">
+                                    <xsl:for-each select="mods/mod" >
+                                        <div><xsl:copy-of select="current()"/></div>
+                                    </xsl:for-each>
                                 </xsl:if>
                             </div>
                         </xsl:for-each>
@@ -144,13 +155,22 @@
         <span class="range">
             <xsl:choose>
                 <xsl:when test="type = 'blast'">Proximité</xsl:when>
+                <xsl:when test="type = 'burst' and center > 0">Zone</xsl:when>
+                <xsl:when test="type = 'burst'">Proximité</xsl:when>
+                <xsl:when test="type = 'wall'">Décharge</xsl:when>
                 <xsl:when test="type = 'cac'">Corps à corps</xsl:when>
+                <xsl:when test="type = 'mine'">Personnelle</xsl:when>
             </xsl:choose>
         </span><xsl:text> </xsl:text>
         <xsl:choose>
-            <xsl:when test="type = 'blast'">Explosion <xsl:value-of select="radius" /></xsl:when>
+            <xsl:when test="type = 'burst'">Explosion <xsl:value-of select="radius" /></xsl:when>
+            <xsl:when test="type = 'blast'">Décharge <xsl:value-of select="radius" /></xsl:when>
+            <xsl:when test="type = 'wall'">Mur <xsl:value-of select="radius" /></xsl:when>
             <xsl:when test="type = 'cac'">Arme</xsl:when>
         </xsl:choose>
+        <xsl:if test="type = 'burst' and center > 0"> à <xsl:value-of select="center"/> cases ou moins</xsl:if>
+
+        <br />
     </xsl:template>
 
     <xsl:template match="target">
@@ -159,8 +179,18 @@
         </span>
         <xsl:choose>
             <xsl:when test="current() = 'allEnemiesInBlast'">Chaque ennemis pris dans l'explosion</xsl:when>
+            <xsl:when test="current() = 'allAlliesInBlast'">Chaque allié pris dans l'explosion</xsl:when>
             <xsl:when test="current() = 'one'">Une créature</xsl:when>
         </xsl:choose>
+        <br />
+    </xsl:template>
+
+    <xsl:template match="trigger">
+        <span class="target">
+            <xsl:text>Déclencheur : </xsl:text>
+        </span>
+        <xsl:value-of select="current()" />
+        <br />
     </xsl:template>
 
     <xsl:template match="attack">
