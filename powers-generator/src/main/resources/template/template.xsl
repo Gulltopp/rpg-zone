@@ -108,6 +108,7 @@
                                         <xsl:choose>
                                             <xsl:when test="actionType = 'simple'"><xsl:text>Action simple</xsl:text></xsl:when>
                                             <xsl:when test="actionType = 'minor'"><xsl:text>Action mineure</xsl:text></xsl:when>
+                                            <xsl:when test="actionType = 'free'"><xsl:text>Action libre</xsl:text></xsl:when>
                                             <xsl:when test="actionType = 'immediateReaction'"><xsl:text>Réaction immédiate</xsl:text></xsl:when>
                                         </xsl:choose>
                                     </span>
@@ -154,6 +155,7 @@
     <xsl:template match="range">
         <span class="range">
             <xsl:choose>
+                <xsl:when test="type = 'ranged'">A distance</xsl:when>
                 <xsl:when test="type = 'blast'">Proximité</xsl:when>
                 <xsl:when test="type = 'burst' and center > 0">Zone</xsl:when>
                 <xsl:when test="type = 'burst'">Proximité</xsl:when>
@@ -169,6 +171,7 @@
             <xsl:when test="type = 'cac'">Arme</xsl:when>
         </xsl:choose>
         <xsl:if test="type = 'burst' and center > 0"> à <xsl:value-of select="center"/> cases ou moins</xsl:if>
+        <xsl:if test="type = 'ranged' and center > 0"> <xsl:value-of select="center"/></xsl:if>
 
         <br />
     </xsl:template>
@@ -180,6 +183,9 @@
         <xsl:choose>
             <xsl:when test="current() = 'allEnemiesInBlast'">Chaque ennemis pris dans l'explosion</xsl:when>
             <xsl:when test="current() = 'allAlliesInBlast'">Chaque allié pris dans l'explosion</xsl:when>
+            <xsl:when test="current() = 'allUndeadsInBlast'">Chaque mort-vivant pris dans l'explosion</xsl:when>
+            <xsl:when test="current() = 'youOrAlly'">Vous ou un allié</xsl:when>
+            <xsl:when test="current() = 'youOrCreature'">Vous ou une créature</xsl:when>
             <xsl:when test="current() = 'one'">Une créature</xsl:when>
         </xsl:choose>
         <br />
@@ -199,7 +205,4 @@
         </span>
         <xsl:value-of select="stat" /> contre <xsl:value-of select="vs" /><br />
     </xsl:template>
-
-
-
 </xsl:stylesheet>

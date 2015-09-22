@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<powers>
+    <character>Gulltopp</character>
+    <class>Clerc</class>
+    <power>
+        <title>Flamme sacrée</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <type>atWill</type>
+        <level>1</level>
+        <desc>Sacred light shines from above, searing a single enemy with its radiance while at the same time aiding an ally with its beneficent power.</desc>
+        <attributes>
+            <attribute>Divin</attribute>
+            <attribute>Focalisateur</attribute>
+            <attribute>Radiant</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>Ranged</type>
+            <radius>5</radius>
+        </range>
+        <target>one</target>
+        <attack>
+            <stat>Sagesse</stat>
+            <vs>Réflexes</vs>
+        </attack>
+        <hit>
+            1d6 + Wisdom modifier radiant damage, and one ally you can see chooses either to gain temporary hit points equal to your Charisma modifier + one-half your level or to make a saving throw.
+        </hit>
+    </power>
+    <!--
+    <power>
+        <title>Coup puissant</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <type>encounter</type>
+        <level>3</level>
+        <desc>Vous armez votre coup et placez une attaque dévastatrice.</desc>
+        <attributes>
+            <attribute>Arme</attribute>
+            <attribute>Martiale</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>cac</type>
+        </range>
+        <target>one</target>
+        <attack>
+            <stat>Force</stat>
+            <vs>CA</vs>
+        </attack>
+        <hit>2[A] + modificateur de Force dégâts.</hit>
+        <mods>
+            <mod><strong>Arme :</strong> si vous attaquez avec une hache, un marteau ou une masse, vous bénéficiez d'un bonus au jet de dégâts égal à votre modificateur de Constitution.</mod>
+        </mods>
+    </power>
+    -->
+    <power>
+        <title>Sanctuaire</title>
+        <class>Clerc</class>
+        <supertype>Utilitaire</supertype>
+        <level>2</level>
+        <type>encounter</type>
+        <desc>You cast a protective ward upon a creature that makes enemies’ attacks less effective</desc>
+        <attributes>
+            <attribute>Divin</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>ranged</type>
+            <radius>10</radius>
+        </range>
+        <target>youOrCreature</target>
+        <effect>The target receives a +5 bonus to all defenses. The effect lasts until the target attacks or until the end of your next turn.</effect>
+    </power>
+    <power>
+        <title>Bastion de santé</title>
+        <class>Clerc</class>
+        <supertype>Utilitaire</supertype>
+        <level>6</level>
+        <type>encounter</type>
+        <attributes>
+            <attribute>Divin</attribute>
+            <attribute>Guérison</attribute>
+        </attributes>
+        <actionType>minor</actionType>
+        <range>
+            <type>ranged</type>
+            <radius>10</radius>
+        </range>
+        <target>youOrAlly</target>
+        <effect>The target can spend a healing surge. Add your Charisma modifier to the hit points regained.</effect>
+
+    </power>
+    <power>
+        <title>Manteau de gloire</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <level>13</level>
+        <type>encounter</type>
+        <desc>Whispering a prayer to your deity, you invoke a blast of white radiance from your holy symbol. Foes burn in its glorious light, but your allies are fortified by it.</desc>
+        <attributes>
+            <attribute>Divin</attribute>
+            <attribute>Guérison</attribute>
+            <attribute>Focalisateur</attribute>
+            <attribute>Radiant</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>blast</type>
+            <radius>5</radius>
+        </range>
+        <target>allEnemiesInBlast</target>
+        <attack>
+            <stat>Sagesse</stat>
+            <vs>Volonté</vs>
+        </attack>
+        <hit>2d10 + Wisdom modifier radiant damage.</hit>
+        <effect>Allies in the blast can spend a healing surge.</effect>
+    </power>
+    <power>
+        <title>Conduit Divin : Bénédiction de la Reine Corneille</title>
+        <class>Clerc</class>
+        <supertype>Feature</supertype>
+        <type>encounter</type>
+        <desc>The Raven Queen grants a boon to those who send the dead on their way.</desc>
+        <attributes>
+            <attribute>Divin</attribute>
+            <attribute>Guérison</attribute>
+        </attributes>
+        <actionType>free</actionType>
+        <range>
+            <type>ranged</type>
+            <radius>10</radius>
+        </range>
+        <trigger>Your attack drops an enemy within range to 0 hit points or fewer</trigger>
+        <effect>You or an ally within 5 squares of the enemy can spend a healing surge.</effect>
+        <mods>
+            <mod>Special: You must take the Raven Queen’s Blessing feat to use this power.</mod>
+        </mods>
+    </power>
+    <power>
+        <title>Conduit Divin : Renvoi des morts-vivants</title>
+        <class>Clerc</class>
+        <supertype>Feature</supertype>
+        <level></level>
+        <type>encounter</type>
+        <desc>
+            You sear undead foes, push them back, and root them in place.
+        </desc>
+        <attributes>
+            <attribute>Divins</attribute>
+            <attribute>Focalisateur</attribute>
+            <attribute>Radiant</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>burst</type>
+            <radius>5</radius>
+        </range>
+        <target>allUndeadsInBlast</target>
+        <attack>
+            <stat>Sagesse</stat>
+            <vs>Volonté</vs>
+        </attack>
+        <hit>
+            4d10 + Wisdom modifier radiant damage, and you push the target a number of squares equal to 3 + your Charisma modifier. The target is immobilized until the end of your next turn.
+        </hit>
+        <fail>
+            Half damage, and the target is not pushed or immobilized.
+        </fail>
+    </power>
+    <power>
+        <title>Conduit Divin : Fortune divine</title>
+        <class>Clerc</class>
+        <supertype>Feature</supertype>
+        <level></level>
+        <type>encounter</type>
+        <desc>
+            In the face of peril, you hold true to your faith and receive a special boon
+        </desc>
+        <attributes>
+            <attribute>Divine</attribute>
+        </attributes>
+        <actionType>free</actionType>
+        <range>
+            <type>mine</type>
+        </range>
+        <effect>
+            You gain a +1 bonus to your next attack roll or saving throw before the end of your next turn.
+        </effect>
+    </power>
+    <power>
+        <title>Lumière démoralisante</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <level>3</level>
+        <type>encounter</type>
+        <desc>A burning column of light engulfs your foe. Its brilliance burns and hinders your foe’s defense for a short time.</desc>
+        <attributes>
+            <attribute>Divin</attribute>
+            <attribute>Focalisateur</attribute>
+            <attribute>Radiant</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>ranged</type>
+            <radius>10</radius>
+        </range>
+        <target>one</target>
+        <attack>
+            <stat>Sagesse</stat>
+            <vs>Réflexes</vs>
+        </attack>
+        <hit>2d10 + Wisdom modifier radiant damage.</hit>
+        <effect>One ally you can see gains combat advantage against the target until the end of your next turn.</effect>
+    </power>
+    <power>
+        <title>Briser l'esprit</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <level>7</level>
+        <type>encounter</type>
+        <desc>Calling down the power of your god, you bathe your foe in agonizing radiance, driving strength out of its impending attacks.</desc>
+        <attributes>
+            <attribute>Charm</attribute>
+            <attribute>Divin</attribute>
+            <attribute>Focalisateur</attribute>
+            <attribute>Radiant</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>ranged</type>
+            <radius>10</radius>
+        </range>
+        <target>one</target>
+        <attack>
+            <stat>Sagesse</stat>
+            <vs>Volonté</vs>
+        </attack>
+        <hit>2d8 + Wisdom modifier radiant damage, and the target takes a penalty to attack rolls equal to your Charisma modifier until the end of your next turn.</hit>
+
+    </power>
+    <power>
+        <title>Sceau Astral</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <level>1</level>
+        <type>atWill</type>
+        <desc>You outline your enemy with ihe silver g\ow of the Astral Sea, and its healing light bathes your friend.</desc>
+        <attributes>
+            <attribute>Divine</attribute>
+            <attribute>Healing</attribute>
+            <attribute>Focalisateur</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>ranged</type>
+            <center>5</center>
+        </range>
+        <target>one</target>
+        <attack>
+            <stat>Sagesse+2</stat>
+            <vs>Reflexes</vs>
+        </attack>
+        <hit>Until the end of your next turn, the target takes a -2 penalty to all defenses. The next ally who hits it before the end of your next turn regains hit points equal to 2 + your Charisma modifier.</hit>
+    </power>
+    <power>
+        <title>Vague Solaire</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <level>11</level>
+        <type>encounter</type>
+        <attributes>
+            <attribute>Divin</attribute>
+            <attribute>Focalisateur</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>burst</type>
+            <radius>8</radius>
+        </range>
+        <target>allEnemiesInBlast</target>
+        <attack>
+            <stat>Sagesse</stat>
+            <vs>Volonté</vs>
+        </attack>
+        <hit>2D8 + modificateur de Sagesse dégats radiants</hit>
+    </power>
+    <power>
+        <title>Soins importants</title>
+        <class>Clerc</class>
+        <supertype>Utilitaire</supertype>
+        <level>6</level>
+        <type>daily</type>
+        <desc>You utter a simple prayer and gain the power to instantly heal wounds, and your touch momentarily suffuses you or a wounded creature with bright silver light.</desc>
+        <attributes>
+            <attribute>Divin</attribute>
+            <attribute>Guérison</attribute>
+        </attributes>
+        <actionType>simple</actionType>
+        <range>
+            <type>cac</type>
+        </range>
+        <target>youOrCreature</target>
+        <effect>The target regains hit points as if it had spent two healing surges.</effect>
+    </power>
+    <power>
+        <title>Terre consacrée</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <level>10</level>
+        <type>daily</type>
+        <desc>Vous coordonnez vos arme et bouclier pour défendre les alliés alentour.</desc>
+        <attributes>
+            <attribute>Martiale</attribute>
+        </attributes>
+        <actionType>minor</actionType>
+        <range>
+            <type>burst</type>
+            <radius>1</radius>
+        </range>
+        <target>allAlliesInBlast</target>
+        <effect>les cibles bénéficient d'un bonus de bouclier de +1 à la CA jusqu'à la fin de la rencontre. Si vous
+            utilisez un bouclier, ce bonus passe à +2 et il s'applique également aux Réflexes de vos alliés.
+        </effect>
+    </power>
+    <power>
+        <title>Feu purificateur</title>
+        <class>Clerc</class>
+        <supertype>Attaque</supertype>
+        <level>12</level>
+        <type>daily</type>
+        <attributes>
+            <attribute>Martiale</attribute>
+        </attributes>
+        <actionType>immediateReaction</actionType>
+        <range>
+            <type>mine</type>
+        </range>
+        <trigger>Vous subissez des dégâts d'une attaque au corps à corps.</trigger>
+        <effect>Jusqu'à la fin de votre tour de jeu suivant vous bénéficiez d'un bonus de +2 aux jets d'attaque et de
+            dégâts contre l'ennemi qui vous a infligé les dégâts.
+        </effect>
+    </power>
+    <power>
+        <title>Soins légers de groupe</title>
+        <class>Clerc</class>
+        <supertype>Utilitaire</supertype>
+        <level>15</level>
+        <type>daily</type>
+        <desc>Vous faites tournoyer votre arme pour tester la garde de vos adversaires tout en parant chacun de leurs
+            coups.
+        </desc>
+        <attributes>
+            <attribute>Arme</attribute>
+            <attribute>Martiale</attribute>
+            <attribute>Guérison</attribute>
+            <attribute>Persistant</attribute>
+        </attributes>
+        <actionType>minor</actionType>
+        <range>
+            <type>mine</type>
+        </range>
+        <effect>vous bénéficiez d'une régénération égale à votre modificateur de Constitution, d'un bonus de pouvoir de
+            +1 à la CA, et d'un bonus de pouvoir de +1 aux jets de sauvegarde. Tout ennemi qui vous est adjacent au
+            début de son tour de jeu subit 1[A] dégâts et est ralenti jusqu'à la fin de son tour de jeu, et ce tant que
+            vous êtes capable de porter des attaques d'opportunité.
+        </effect>
+    </power>
+    <power>
+        <title>Terrain sanctifié</title>
+        <class>Clerc</class>
+        <supertype>Utilitaire</supertype>
+        <level>16</level>
+        <type>daily</type>
+        <desc>Il est aussi dur de se débarrasser de vous que du goût âpre d'une mauvaise bière.</desc>
+        <attributes>
+            <attribute>Guérison</attribute>
+            <attribute>Martiale</attribute>
+        </attributes>
+        <actionType>minor</actionType>
+        <range>
+            <type>mine</type>
+        </range>
+        <effect>vous dépensez une récupération, regagnez un nombre de points de vie supplémentaire égal à 2d6 + votre
+            modificateur de Constitution, et effectuez un jet de sauvegarde contre un effet susceptible d'être annulé
+            par une sauvegarde.
+        </effect>
+    </power>
+
+    <power>
+        <title>Mot de guérison</title>
+        <class>Clerc</class>
+        <supertype>Feature</supertype>
+        <type>encounter</type>
+        <desc>You whisper a brief prayer as divine light washes over your target, helping to mend its wounds.</desc>
+        <attributes>
+            <attribute>Guérison</attribute>
+            <attribute>Divine</attribute>
+        </attributes>
+        <actionType>minor</actionType>
+        <range>
+            <type>burst</type>
+            <radius>10</radius>
+        </range>
+        <target>self</target>
+        <effect>The target can spend a healing surge and regain an additional 4d6 hit points.</effect>
+        <mods>Special: You can use this power three times per encounter.</mods>
+    </power>
+</powers>

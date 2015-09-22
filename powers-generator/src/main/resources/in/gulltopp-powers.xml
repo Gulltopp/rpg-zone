@@ -22,7 +22,8 @@
             <stat>Force</stat>
             <vs>CA</vs>
         </attack>
-        <hit>1[A] + modificateur de Force dégâts, et la cible est marquée (2[A] + modificateur de Force au niveau 21)</hit>
+        <hit>1[A] + modificateur de Force dégâts, et la cible est marquée (2[A] + modificateur de Force au niveau 21)
+        </hit>
     </power>
     <!--
     <power>
@@ -89,8 +90,15 @@
         </attack>
         <hit>2[A] + modificateur de Force dégâts. Effectuez une attaque secondaire.</hit>
         <mods>
-            <mod><strong>Attaque Secondaire :</strong> Force+2 contre CA.</mod>
-            <mod><strong>Réussite :</strong>  1d6 + modificateur de Force dégâts de foudre. La cible est hébétée jusqu'à la fin de votre tour de jeu suivant</mod>
+            <mod>
+                <strong>Attaque Secondaire :</strong>
+                Force+2 contre CA.
+            </mod>
+            <mod>
+                <strong>Réussite :</strong>
+                1d6 + modificateur de Force dégâts de foudre. La cible est hébétée jusqu'à la fin de votre tour de jeu
+                suivant
+            </mod>
         </mods>
     </power>
     <power>
@@ -113,11 +121,13 @@
             <stat>Force</stat>
             <vs>CA</vs>
         </attack>
-        <hit>2[A] + modificateur de Force dégâts, et la cible est hébétée jusqu'à la fin de votre tour de jeu suivant.</hit>
+        <hit>2[A] + modificateur de Force dégâts, et la cible est hébétée jusqu'à la fin de votre tour de jeu suivant.
+        </hit>
         <mods>
             <mod>
-                <strong>Arme :</strong> si vous attaquez avec un marteau ou une masse, la cible est étourdie plutôt qu'hébétée.
-           </mod>
+                <strong>Arme :</strong>
+                si vous attaquez avec un marteau ou une masse, la cible est étourdie plutôt qu'hébétée.
+            </mod>
         </mods>
     </power>
     <power>
@@ -126,7 +136,9 @@
         <supertype>Attaque</supertype>
         <level>17</level>
         <type>encounter</type>
-        <desc>Vous tailladez la main de votre adversaire, lui causant une atroce blessure qui lui fait lâcher son arme.</desc>
+        <desc>Vous tailladez la main de votre adversaire, lui causant une atroce blessure qui lui fait lâcher son
+            arme.
+        </desc>
         <attributes>
             <attribute>Arme</attribute>
             <attribute>Martiale</attribute>
@@ -140,7 +152,9 @@
             <stat>Force</stat>
             <vs>Réflexes</vs>
         </attack>
-        <hit>2[A] + modificateur de Force dégâts, et la cible lâche une des armes qu'elle tient. Vous pouvez choisir d'attraper l'arme lâchée avec une main libre ou de la faire tomber sur le sol à vos pieds (dans votre case).</hit>
+        <hit>2[A] + modificateur de Force dégâts, et la cible lâche une des armes qu'elle tient. Vous pouvez choisir
+            d'attraper l'arme lâchée avec une main libre ou de la faire tomber sur le sol à vos pieds (dans votre case).
+        </hit>
     </power>
     <power>
         <title>Brise-crâne</title>
@@ -148,7 +162,9 @@
         <supertype>Attaque</supertype>
         <level>23</level>
         <type>encounter</type>
-        <desc>Vous abattez votre arme sur le crâne de votre ennemi dans un craquement sourd qui le laisse hébété et chancelant.</desc>
+        <desc>Vous abattez votre arme sur le crâne de votre ennemi dans un craquement sourd qui le laisse hébété et
+            chancelant.
+        </desc>
         <attributes>
             <attribute>Arme</attribute>
             <attribute>Martiale</attribute>
@@ -162,9 +178,13 @@
             <stat>Force</stat>
             <vs>CA</vs>
         </attack>
-        <hit>4[A] + modificateur de Force dégâts, et la cible est hébétée jusqu'à la fin de votre tour de jeu suivant.</hit>
+        <hit>4[A] + modificateur de Force dégâts, et la cible est hébétée jusqu'à la fin de votre tour de jeu suivant.
+        </hit>
         <mods>
-            <mod><strong>Arme : </strong>si vous attaquez avec un marteau ou une masse, vous bénéficiez d'un bonus au jet de dégâts égal à votre modificateur de Constitution, et votre ennemi est aveuglé jusqu'à la fin de votre tour de jeu suivant.</mod>
+            <mod><strong>Arme :</strong>si vous attaquez avec un marteau ou une masse, vous bénéficiez d'un bonus au jet
+                de dégâts égal à votre modificateur de Constitution, et votre ennemi est aveuglé jusqu'à la fin de votre
+                tour de jeu suivant.
+            </mod>
         </mods>
     </power>
     <power>
@@ -186,10 +206,19 @@
             <stat>Force</stat>
             <vs>CA</vs>
         </attack>
-        <hit>4[A] + modificateur de Force dégâts. Si la cible était en péril avant l'attaque, elle subit 2[A] dégâts de plus.</hit>
+        <hit>4[A] + modificateur de Force dégâts. Si la cible était en péril avant l'attaque, elle subit 2[A] dégâts de
+            plus.
+        </hit>
         <fail>demi-dégâts</fail>
-        <effect>Si la cible tombe à 0 pv, vous pouvez effectuer une attaque complémentaire sur chaque ennemi dans un rayon de 5 cases, Force contre Volonté.</effect>
-        <mods><mod> <strong>Réussite :</strong> la cible est repoussée de 2 cases et tombe à terre.</mod></mods><hit></hit>
+        <effect>Si la cible tombe à 0 pv, vous pouvez effectuer une attaque complémentaire sur chaque ennemi dans un
+            rayon de 5 cases, Force contre Volonté.
+        </effect>
+        <mods>
+            <mod>
+                <strong>Réussite :</strong>
+                la cible est repoussée de 2 cases et tombe à terre.
+            </mod>
+        </mods>
     </power>
 
     <power>
@@ -234,8 +263,12 @@
             <stat>Force</stat>
             <vs>CA</vs>
         </attack>
-        <hit>2[A] + modificateur de Force dégâts. Vous bénéficiez contre la cible d'un bonus de pouvoir de +2 aux jets d'attaque et d'un bonus de pouvoir de +4 aux jets de dégâts jusqu'à la fin de la rencontre.</hit>
-        <fail>vous bénéficiez contre la cible d'un bonus de pouvoir de +1 aux jets d'attaque et d'un bonus de pouvoir de +2 aux jets de dégâts jusqu'à la fin de la rencontre.</fail>
+        <hit>2[A] + modificateur de Force dégâts. Vous bénéficiez contre la cible d'un bonus de pouvoir de +2 aux jets
+            d'attaque et d'un bonus de pouvoir de +4 aux jets de dégâts jusqu'à la fin de la rencontre.
+        </hit>
+        <fail>vous bénéficiez contre la cible d'un bonus de pouvoir de +1 aux jets d'attaque et d'un bonus de pouvoir de
+            +2 aux jets de dégâts jusqu'à la fin de la rencontre.
+        </fail>
     </power>
     <power>
         <title>Vaillant gardien</title>
@@ -253,7 +286,9 @@
             <radius>1</radius>
         </range>
         <target>allAlliesInBlast</target>
-        <effect>les cibles bénéficient d'un bonus de bouclier de +1 à la CA jusqu'à la fin de la rencontre. Si vous utilisez un bouclier, ce bonus passe à +2 et il s'applique également aux Réflexes de vos alliés.</effect>
+        <effect>les cibles bénéficient d'un bonus de bouclier de +1 à la CA jusqu'à la fin de la rencontre. Si vous
+            utilisez un bouclier, ce bonus passe à +2 et il s'applique également aux Réflexes de vos alliés.
+        </effect>
     </power>
     <power>
         <title>Revanche brutale</title>
@@ -269,7 +304,9 @@
             <type>mine</type>
         </range>
         <trigger>Vous subissez des dégâts d'une attaque au corps à corps.</trigger>
-        <effect>Jusqu'à la fin de votre tour de jeu suivant vous bénéficiez d'un bonus de +2 aux jets d'attaque et de dégâts contre l'ennemi qui vous a infligé les dégâts.</effect>
+        <effect>Jusqu'à la fin de votre tour de jeu suivant vous bénéficiez d'un bonus de +2 aux jets d'attaque et de
+            dégâts contre l'ennemi qui vous a infligé les dégâts.
+        </effect>
     </power>
     <power>
         <title>Avalanche immuable</title>
@@ -277,7 +314,9 @@
         <supertype>Attaque</supertype>
         <level>15</level>
         <type>daily</type>
-        <desc>Vous faites tournoyer votre arme pour tester la garde de vos adversaires tout en parant chacun de leurs coups.</desc>
+        <desc>Vous faites tournoyer votre arme pour tester la garde de vos adversaires tout en parant chacun de leurs
+            coups.
+        </desc>
         <attributes>
             <attribute>Arme</attribute>
             <attribute>Martiale</attribute>
@@ -288,7 +327,11 @@
         <range>
             <type>mine</type>
         </range>
-        <effect>vous bénéficiez d'une régénération égale à votre modificateur de Constitution, d'un bonus de pouvoir de +1 à la CA, et d'un bonus de pouvoir de +1 aux jets de sauvegarde. Tout ennemi qui vous est adjacent au début de son tour de jeu subit 1[A] dégâts et est ralenti jusqu'à la fin de son tour de jeu, et ce tant que vous êtes capable de porter des attaques d'opportunité.</effect>
+        <effect>vous bénéficiez d'une régénération égale à votre modificateur de Constitution, d'un bonus de pouvoir de
+            +1 à la CA, et d'un bonus de pouvoir de +1 aux jets de sauvegarde. Tout ennemi qui vous est adjacent au
+            début de son tour de jeu subit 1[A] dégâts et est ralenti jusqu'à la fin de son tour de jeu, et ce tant que
+            vous êtes capable de porter des attaques d'opportunité.
+        </effect>
     </power>
     <power>
         <title>Guerrier de fer</title>
@@ -305,7 +348,10 @@
         <range>
             <type>mine</type>
         </range>
-        <effect>vous dépensez une récupération, regagnez un nombre de points de vie supplémentaire égal à 2d6 + votre modificateur de Constitution, et effectuez un jet de sauvegarde contre un effet susceptible d'être annulé par une sauvegarde.</effect>
+        <effect>vous dépensez une récupération, regagnez un nombre de points de vie supplémentaire égal à 2d6 + votre
+            modificateur de Constitution, et effectuez un jet de sauvegarde contre un effet susceptible d'être annulé
+            par une sauvegarde.
+        </effect>
     </power>
     <power>
         <title>Insoumis</title>
@@ -323,6 +369,7 @@
             <type>mine</type>
         </range>
         <trigger>vous tombez à 0 points de vie (ou moins)</trigger>
-        <effect>vous regagnez assez de points de vie pour vous retrouver à la moitié de vos points de vie maximums.</effect>
+        <effect>vous regagnez assez de points de vie pour vous retrouver à la moitié de vos points de vie maximums.
+        </effect>
     </power>
 </powers>
