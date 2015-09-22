@@ -7,9 +7,11 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Collection;
 import java.util.regex.Pattern;
 
@@ -45,10 +47,12 @@ public class PowersGenerator {
             if(!Files.exists(file.getParent())){
                 Files.createDirectories(file.getParent());
             }
-            if(!Files.exists(file)) {
-                Files.createFile(file);
+            if(Files.exists(file)){
+                Files.delete(file);
+                //Files.createFile(file);
             }
-            transformer.transform(new StreamSource(powers), new StreamResult(Files.newBufferedWriter(file)));
+            Files.createFile(file);
+            transformer.transform(new StreamSource(powers), new StreamResult(Files.newBufferedWriter(file, StandardCharsets.UTF_8, StandardOpenOption.WRITE)));
         }
 
 
